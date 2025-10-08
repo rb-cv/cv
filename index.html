@@ -1,26 +1,36 @@
 <!doctype html>
 <html lang="en">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <meta name="googlebot" content="noindex,nofollow">
-
-<title>CV</title>
-<script>
-(() => {
-  const q = new URLSearchParams(location.search);
-  if (q.has('select')) return;                       // ne pas rediriger si ?select=1
-  const l = (navigator.language || '').toLowerCase();
-  if (l.startsWith('fr')) location.replace('CV_BELLINA_fr.html');
-  else if (l.startsWith('en')) location.replace('CV_BELLINA_en.html');
-  else q.set('select','1'), location.search = q.toString();  // forcer l’écran de choix
-})();
-</script>
+<title>CV — Choose language</title>
+<link rel="alternate" hreflang="fr" href="CV_BELLINA_fr.html">
+<link rel="alternate" hreflang="en" href="CV_BELLINA_en.html">
+<style>
+  :root{--bg:#fff;--text:#111;--muted:#666;--line:#e6e6e6}
+  html,body{margin:0;height:100%}
+  body{display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--text);
+       font:16px/1.4 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+  .wrap{max-width:640px;width:100%;padding:24px}
+  .card{border:1px solid var(--line);border-radius:10px;padding:28px;text-align:center}
+  h1{margin:0 0 8px 0;font-size:22px}
+  p.muted{margin:0 0 18px 0;color:var(--muted)}
+  .buttons{display:flex;gap:12px;justify-content:center}
+  a.btn{display:inline-block;padding:12px 18px;border:1px solid var(--line);border-radius:10px;text-decoration:none;color:inherit}
+  a.btn:hover{background:#f8f8f8}
+</style>
+</head>
 <body>
-  <main style="max-width:520px;margin:10vh auto;font:16px system-ui,sans-serif;line-height:1.4">
-    <h1>Choisir une langue · Choose a language</h1>
-    <p><a href="CV_BELLINA_fr.html">Français</a> · <a href="CV_BELLINA_en.html">English</a></p>
-  </main>
+  <div class="wrap">
+    <div class="card">
+      <h1>Choisir une langue · Choose a language</h1>
+      <div class="buttons">
+        <a class="btn" href="CV_BELLINA_fr.html" hreflang="fr" lang="fr">Français</a>
+        <a class="btn" href="CV_BELLINA_en.html" hreflang="en" lang="en">English</a>
+      </div>
+    </div>
+  </div>
 </body>
-
 </html>
