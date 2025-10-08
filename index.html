@@ -7,9 +7,14 @@
 
 <title>CV</title>
 <script>
-  const L=(navigator.language||'').toLowerCase();
-  if(L.startsWith('fr')) location.replace('CV_BELLINA_fr.html');
-  else if(L.startsWith('en')) location.replace('CV_BELLINA_en.html');
+(() => {
+  const q = new URLSearchParams(location.search);
+  if (q.has('select')) return;                       // ne pas rediriger si ?select=1
+  const l = (navigator.language || '').toLowerCase();
+  if (l.startsWith('fr')) location.replace('CV_BELLINA_fr.html');
+  else if (l.startsWith('en')) location.replace('CV_BELLINA_en.html');
+  else q.set('select','1'), location.search = q.toString();  // forcer l’écran de choix
+})();
 </script>
 <body>
   <main style="max-width:520px;margin:10vh auto;font:16px system-ui,sans-serif;line-height:1.4">
@@ -17,4 +22,5 @@
     <p><a href="CV_BELLINA_fr.html">Français</a> · <a href="CV_BELLINA_en.html">English</a></p>
   </main>
 </body>
+
 </html>
